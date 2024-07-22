@@ -1,5 +1,6 @@
 'use client'
 
+import { Button } from '@/components/ui/button'
 import { useEffect, useState } from 'react'
 
 const arr = ['breathe in', 'breathe out']
@@ -16,9 +17,6 @@ export function Scene1({ next }: { next: () => void }) {
       const intervalId = setInterval(() => {
         if (count % 4 === 1) {
           setStatus(status == 0 ? 1 : 0)
-          //   if (audioRef.current) {
-          //     audioRef.current.play();
-          //   }
         }
         setCount(count - 1)
       }, 1000)
@@ -31,13 +29,15 @@ export function Scene1({ next }: { next: () => void }) {
 
   return start ? (
     <>
+      <div></div>
       <div>{arr[status]}</div>
-      <div>{count}</div>
+      <div className="w-full text-right">{count}</div>
     </>
   ) : (
     <>
-      <div>深呼吸をしましょう</div>
-      <button onClick={() => setStart(true)}>next</button>
+      <div></div>
+      <div className="text-muted-foreground">深呼吸をしましょう</div>
+      <Button onClick={() => setStart(true)}>next</Button>
     </>
   )
 }
