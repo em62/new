@@ -1,6 +1,7 @@
+import { Button } from '@/components/ui/button'
 import { useEffect, useState } from 'react'
 
-const initialCount = 10
+const initialCount = 3000
 
 export function Scene3({ next }: { next: () => void }) {
   const [start, setStart] = useState(false)
@@ -38,15 +39,20 @@ export function Scene3({ next }: { next: () => void }) {
     </>
   ) : (
     <>
-      <div>ゾーンに入る準備ができました。さあ、始めましょう！</div>
-      <button
+      <div></div>
+      <div className="text-center text-muted-foreground">
+        ゾーンに入る準備ができました。
+        <br />
+        さあ、始めましょう！
+      </div>
+      <Button
         onClick={() => {
           setStart(true)
           setRun(true)
         }}
       >
         始める
-      </button>
+      </Button>
     </>
   )
 }

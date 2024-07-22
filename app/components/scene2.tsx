@@ -20,16 +20,17 @@ export function Scene2({ next }: { next: () => void }) {
 
   return start ? (
     <>
-      <div>{count}</div>
-      <span className="relative flex h-4 w-4">
-        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#adfa1d] opacity-75"></span>
-        <span className="relative inline-flex h-4 w-4 rounded-full bg-[#adfa1d]"></span>
-      </span>
       <div></div>
+      <span className="relative flex h-4 w-4">
+        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400 opacity-75"></span>
+        <span className="relative inline-flex h-4 w-4 rounded-full bg-sky-500"></span>
+      </span>
+      <div>{count}</div>
     </>
   ) : (
     <>
-      <div>1点を見つめましょう</div>
+      <div></div>
+      <div className="text-muted-foreground">1点を見つめましょう</div>
       <button onClick={() => setStart(true)}>next</button>
     </>
   )
