@@ -1,31 +1,23 @@
 'use client'
 
-import { useLayoutEffect, useState } from 'react'
-import { Scenes } from './components/scenes'
+import Link from 'next/link'
+import { Button } from '@/components/ui/button'
 
 export default function Home() {
-  const [height, setHeight] = useState(0)
-
-  // 画面の高さを取得してリサイズする
-  useLayoutEffect(() => {
-    const resize = () => {
-      setHeight(window.innerHeight)
-    }
-
-    window.addEventListener('resize', resize)
-
-    resize()
-
-    return () => {
-      window.removeEventListener('resize', resize)
-    }
-  }, [height])
-
-  if (height == 0) return
-
   return (
-    <div style={{ height: `${height}px` }} className="flex flex-col items-center justify-between px-6 py-10">
-      <Scenes />
-    </div>
+    <>
+      <div className="mt-[72px] px-6 py-8">
+        <h1 className="mb-2 text-2xl font-bold tracking-tight">Creating an environment to concentrate</h1>
+        <p className="mb-6 text-sm text-muted-foreground">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque repellat omnis corrupti illo quidem aliquid.</p>
+        <div className="space-x-2">
+          <Button size="sm" asChild>
+            <Link href="/get-started">Get Started</Link>
+          </Button>
+          <Button size="sm" variant="outline" asChild>
+            <Link href="/record">Record</Link>
+          </Button>
+        </div>
+      </div>
+    </>
   )
 }

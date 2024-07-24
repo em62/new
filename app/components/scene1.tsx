@@ -7,7 +7,7 @@ const arr = ['breathe in', 'breathe out']
 
 export function Scene1({ next }: { next: () => void }) {
   const [start, setStart] = useState(false)
-  const [count, setCount] = useState(80)
+  const [count, setCount] = useState(8)
   const [status, setStatus] = useState(0)
 
   useEffect(() => {
