@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
 export function Scene2({ next }: { next: () => void }) {
-  const [count, setCount] = useState(60)
+  const [count, setCount] = useState(10)
   const [start, setStart] = useState(false)
 
   useEffect(() => {

@@ -1,13 +1,16 @@
 import { useState } from 'react'
 import { getRecords, setRecords } from '../storage/actions'
-import { format } from 'date-fns'
+import { v4 as uuidv4 } from 'uuid'
 
 import { Textarea } from '@/components/ui/textarea'
 import { Button } from '@/components/ui/button'
+import { useRouter } from 'next/navigation'
 
-export function Scene4({ next }: { next: () => void }) {
+export function Scene4() {
   const [start, setStart] = useState(false)
   const [value, setValue] = useState('')
+
+  const router = useRouter()
 
   const handleClick = () => {
     setValue('')
@@ -15,13 +18,13 @@ export function Scene4({ next }: { next: () => void }) {
     setRecords([
       ...records,
       {
-        id: Math.floor(Math.random() * 10000),
+        id: uuidv4(),
         message: value,
-        created_at: format(new Date(), 'yyyy-MM-dd HH:mm:ss'),
+        created_at: new Date().getTime(),
       },
     ])
 
-    next()
+    router.push('/')
   }
 
   return start ? (
@@ -47,7 +50,7 @@ export function Scene4({ next }: { next: () => void }) {
         <Button size="sm" onClick={() => setStart(true)}>
           記録する
         </Button>
-        <Button size="sm" variant="outline" onClick={() => next()}>
+        <Button size="sm" variant="outline">
           記録せずに終了する
         </Button>
       </div>

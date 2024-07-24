@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button'
 import { useEffect, useState } from 'react'
 
-const initialCount = 3000
+const initialCount = 0
 
 export function Scene3({ next }: { next: () => void }) {
   const [start, setStart] = useState(false)
